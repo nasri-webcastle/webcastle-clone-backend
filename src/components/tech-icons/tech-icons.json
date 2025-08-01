@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_tech_icons_tech_icons",
+  "info": {
+    "displayName": "techIcons"
+  },
+  "options": {},
+  "attributes": {
+    "reactIcon": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

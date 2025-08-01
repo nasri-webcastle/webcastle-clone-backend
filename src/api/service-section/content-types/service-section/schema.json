@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_sections",
+  "info": {
+    "singularName": "service-section",
+    "pluralName": "service-sections",
+    "displayName": "Service Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "techIcon": {
+      "type": "component",
+      "component": "tech-icons.tech-icons",
+      "repeatable": true
+    }
+  }
+}

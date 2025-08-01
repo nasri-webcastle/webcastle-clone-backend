@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_technologies_heads",
+  "info": {
+    "singularName": "home-technologies-head",
+    "pluralName": "home-technologies-heads",
+    "displayName": "Home Technologies Head"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading_top": {
+      "type": "string"
+    },
+    "heading_main_line1": {
+      "type": "string"
+    },
+    "heading_main_line2": {
+      "type": "string"
+    }
+  }
+}

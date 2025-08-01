@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "enquiries",
+  "info": {
+    "singularName": "enquiry",
+    "pluralName": "enquiries",
+    "displayName": "Enquiry"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "agreed": {
+      "type": "boolean"
+    },
+    "company": {
+      "type": "string"
+    }
+  }
+}
