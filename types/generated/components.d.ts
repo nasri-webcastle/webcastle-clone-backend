@@ -1,5 +1,28 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AwardAwards extends Struct.ComponentSchema {
+  collectionName: 'components_award_awards';
+  info: {
+    displayName: 'Awards';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CtaCtaItem extends Struct.ComponentSchema {
+  collectionName: 'components_cta_cta_items';
+  info: {
+    displayName: 'cta-item';
+  };
+  attributes: {
+    buttonlabel: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface LinksLinks extends Struct.ComponentSchema {
   collectionName: 'components_links_links';
   info: {
@@ -21,23 +44,13 @@ export interface TechIconsTechIcons extends Struct.ComponentSchema {
   };
 }
 
-export interface TechnologiesTechnologies extends Struct.ComponentSchema {
-  collectionName: 'components_technologies_technologies';
-  info: {
-    displayName: 'Technologies';
-  };
-  attributes: {
-    icon: Schema.Attribute.String;
-    name: Schema.Attribute.String;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'award.awards': AwardAwards;
+      'cta.cta-item': CtaCtaItem;
       'links.links': LinksLinks;
       'tech-icons.tech-icons': TechIconsTechIcons;
-      'technologies.technologies': TechnologiesTechnologies;
     }
   }
 }

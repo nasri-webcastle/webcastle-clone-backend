@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_cta_cta_items",
+  "info": {
+    "displayName": "cta-item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "buttonlabel": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

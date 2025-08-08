@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "client_logo_sections",
+  "info": {
+    "singularName": "client-logo-section",
+    "pluralName": "client-logo-sections",
+    "displayName": "Client Logo Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "client_logos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::client-logo.client-logo"
+    }
+  }
+}

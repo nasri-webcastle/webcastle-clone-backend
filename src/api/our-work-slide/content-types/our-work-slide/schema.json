@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "our_work_slides",
+  "info": {
+    "singularName": "our-work-slide",
+    "pluralName": "our-work-slides",
+    "displayName": "Our Work Slide"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

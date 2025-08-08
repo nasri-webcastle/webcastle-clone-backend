@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "awards_sections",
+  "info": {
+    "singularName": "awards-section",
+    "pluralName": "awards-sections",
+    "displayName": "awards-section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string"
+    },
+    "Award": {
+      "type": "component",
+      "component": "award.awards",
+      "repeatable": true
+    },
+    "cta": {
+      "type": "component",
+      "component": "cta.cta-item",
+      "repeatable": true
+    }
+  }
+}
