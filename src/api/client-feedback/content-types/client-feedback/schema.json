@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "client_feedbacks",
+  "info": {
+    "singularName": "client-feedback",
+    "pluralName": "client-feedbacks",
+    "displayName": "Client Feedback"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "quotes_image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

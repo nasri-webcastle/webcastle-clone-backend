@@ -434,6 +434,42 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiClientFeedbackClientFeedback
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'client_feedbacks';
+  info: {
+    displayName: 'Client Feedback';
+    pluralName: 'client-feedbacks';
+    singularName: 'client-feedback';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    designation: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::client-feedback.client-feedback'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    quotes_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiClientLogoSectionClientLogoSection
   extends Struct.SingleTypeSchema {
   collectionName: 'client_logo_sections';
@@ -968,6 +1004,37 @@ export interface ApiTechnologyTechnology extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialPageTestimonialPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'testimonial_pages';
+  info: {
+    displayName: 'Testimonial Page';
+    pluralName: 'testimonial-pages';
+    singularName: 'testimonial-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    background: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial-page.testimonial-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1552,6 +1619,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::awards-section.awards-section': ApiAwardsSectionAwardsSection;
       'api::category.category': ApiCategoryCategory;
+      'api::client-feedback.client-feedback': ApiClientFeedbackClientFeedback;
       'api::client-logo-section.client-logo-section': ApiClientLogoSectionClientLogoSection;
       'api::client-logo.client-logo': ApiClientLogoClientLogo;
       'api::contact-detail.contact-detail': ApiContactDetailContactDetail;
@@ -1569,6 +1637,7 @@ declare module '@strapi/strapi' {
       'api::social-link.social-link': ApiSocialLinkSocialLink;
       'api::technology-section.technology-section': ApiTechnologySectionTechnologySection;
       'api::technology.technology': ApiTechnologyTechnology;
+      'api::testimonial-page.testimonial-page': ApiTestimonialPageTestimonialPage;
       'api::testimonial-section.testimonial-section': ApiTestimonialSectionTestimonialSection;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;

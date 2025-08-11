@@ -20,12 +20,12 @@ async function fixHomesIndex() {
     // First, let's verify the table structure
     console.log('Checking table structure...');
 
-    const [columns] = await connection.query('SHOW CREATE TABLE social_links;');
+    const [columns] = await connection.query('SHOW CREATE TABLE client_feedbacks;');
     console.log('Current table structure:', columns);
  
     // Drop existing indexes if they exist
     try {
-      await connection.query('DROP INDEX social_links_documents_idx ON social_links;');
+      await connection.query('DROP INDEX client_feedbacks_documents_idx ON client_feedbacks;');
       console.log('Dropped existing composite index.');
     } catch (error) {
       console.log('No existing composite index to drop.');
@@ -33,7 +33,7 @@ async function fixHomesIndex() {
  
     // Modify columns with minimal lengths
     await connection.query(`
-      ALTER TABLE social_links
+      ALTER TABLE client_feedbacks
       MODIFY document_id VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
       MODIFY locale VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
     `);
@@ -41,7 +41,7 @@ async function fixHomesIndex() {
  
     // Create separate indexes first
     await connection.query(`
-      ALTER TABLE social_links
+      ALTER TABLE client_feedbacks
       ADD INDEX idx_document_id(document_id(64)),
       ADD INDEX idx_locale(locale(20)),
       ADD INDEX idx_published_at(published_at);
@@ -50,8 +50,8 @@ async function fixHomesIndex() {
  
     // Add the composite index with limited lengths
     await connection.query(`
-      ALTER TABLE social_links
-      ADD INDEX social_links_documents_idx(document_id(50), locale(20), published_at);
+      ALTER TABLE client_feedbacks
+      ADD INDEX client_feedbacks_documents_idx(document_id(50), locale(20), published_at);
     `);
     console.log('Composite index added successfully.');
  
@@ -104,7 +104,7 @@ fixHomesIndex()
 //     console.log('Connected to database successfully.');
  
 //     // The correct table name is wishlists_cmps, not my_wishlists
-//     const tableName = 'social_links_cmps';
+//     const tableName = 'client_feedbacks_cmps';
  
 //     // First, let's check the table structure to confirm column names
 //     const [columns] = await connection.query(`DESCRIBE ${tableName};`);
@@ -116,7 +116,7 @@ fixHomesIndex()
 //       const indexNames = new Set(indexes.map(idx => idx.Key_name));
 //       console.log('Existing indexes:', [...indexNames]);
      
-//       if (indexNames.has('social_links_cmps')) {
+//       if (indexNames.has('client_feedbacks_cmps')) {
 //         await connection.query(`ALTER TABLE ${tableName} DROP INDEX destinations_uq;`);
 //         console.log('Dropped existing unique index "my_wishlists".');
 //       } else {
